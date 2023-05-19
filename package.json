@@ -1,0 +1,12 @@
+{
+  "name": "teste_oystr",
+  "version": "1.0.0",
+  "description": "This project is a practical test for a React front-end development position at Oystr Robôs. The goal of this application is to create a minimally responsive web app that lists and allows searching for Marvel characters using the Marvel API.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "keywords": []
+}
