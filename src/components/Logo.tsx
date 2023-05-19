@@ -12,7 +12,7 @@ export function Logo() {
   }
 
   return (
-    <div className="flex items-center justify-center">
+    <div className="mb-12 flex items-center justify-center">
       <Image
         className={`${logoClassName} transition-transform`}
         src={ShieldLogo}
