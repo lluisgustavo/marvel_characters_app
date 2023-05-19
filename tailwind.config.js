@@ -13,7 +13,7 @@ module.exports = {
         roboto: 'var(--font-roboto)',
       },
       colors: {
-        "dark-grey": #121212,
+        darkgrey: '#121212',
         shield: '#020018',
       },
     },
