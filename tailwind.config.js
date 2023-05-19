@@ -12,6 +12,10 @@ module.exports = {
         classified: 'var(--font-classified)',
         roboto: 'var(--font-roboto)',
       },
+      colors: {
+        "dark-grey": #121212,
+        shield: '#020018',
+      },
     },
   },
   plugins: [],
