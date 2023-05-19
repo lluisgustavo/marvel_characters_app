@@ -1,11 +1,20 @@
+'use client'
 import Image from 'next/image'
 import ShieldLogo from '../assets/logo.svg'
+import { usePathname } from 'next/navigation'
 
 export function Logo() {
+  const pathname = usePathname()
+  let logoClassName = 'w-96'
+
+  if (pathname !== '/') {
+    logoClassName = 'w-40'
+  }
+
   return (
-    <div className="flex items-center justify-center py-10">
+    <div className="flex items-center justify-center">
       <Image
-        className={`w-32 transition-transform`}
+        className={`${logoClassName} transition-transform`}
         src={ShieldLogo}
         alt="Strategic Homeland Intervention, Enforcement and Logistics Division"
       ></Image>
