@@ -16,7 +16,7 @@ interface AgentDossierProps {
 
 export function AgentDossier({ characters }: AgentDossierProps) {
   return (
-    <div className="container mx-auto grid max-h-96 snap-y grid-cols-5 gap-8 p-6">
+    <div className="container mx-auto grid grid-cols-5 gap-8 p-6">
       {characters.map((character) => (
         <SuperbeingCard
           key={character.id}
