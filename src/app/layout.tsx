@@ -1,9 +1,7 @@
 import './globals.css'
 import { Roboto_Flex as Roboto, Poppins, Special_Elite } from 'next/font/google'
-import ShieldLogo from '../assets/logo.svg'
-import Image from 'next/image'
 import { ReactNode } from 'react'
-import { useRouter } from 'next/navigation'
+import { Logo } from '@/components/Logo'
 
 const specialElite = Special_Elite({
   subsets: ['latin'],
@@ -32,8 +30,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body
-        className={`${poppins.variable} ${specialElite.variable} ${roboto.variable} max-h-full bg-darkgrey font-sans text-gray-100`}
+        className={`${poppins.variable} ${specialElite.variable} ${roboto.variable} m-16 max-h-screen bg-darkgrey font-sans text-gray-100`}
       >
+        <Logo />
         {children}
       </body>
     </html>
