@@ -47,14 +47,14 @@ export function Carousel({ images }: CarouselProps) {
   const settings: Settings = {
     dots: false,
     infinite: false,
-    speed: 1000,
+    speed: 1500,
     prevArrow: <Arrow offset={offset} total={total} direction="left" />,
     nextArrow: <Arrow offset={offset} total={total} direction="right" />,
     slidesToShow: 1,
     slidesToScroll: 1,
     swipeToSlide: true,
     lazyLoad: 'ondemand', // Set the value of lazyLoad to 'ondemand' or 'progressive' based on your requirements
-    autoplay: true,
+    autoplay: false,
     responsive: [
       {
         breakpoint: 768,
