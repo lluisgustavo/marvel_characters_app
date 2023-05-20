@@ -1,10 +1,10 @@
 'use client'
-import { AgentDossier } from '@/components/AgentDossier'
+import { DossierContent } from '@/components/DossierContent'
 import { DossierPagination } from '@/components/DossierPagination'
+import { ReturnButton } from '@/components/ReturnButton'
 import { SearchBar } from '@/components/SearchBar'
 import api from '@/lib/api'
 import { deleteCookie } from 'cookies-next'
-import { ArrowLeftCircle, ArrowRightCircle } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import { useState, useCallback, useEffect } from 'react'
 
@@ -77,39 +77,15 @@ export default function Dossier() {
 
   return (
     <>
-      <div className="flex w-full items-center justify-center">
-        <button
-          className="mb-12 text-center text-3xl text-zinc-300"
-          onClick={() => handleReturnClick()}
-        >
-          Encrypt Database
-        </button>
-      </div>
+      <ReturnButton onClick={handleReturnClick} />
       <SearchBar setQuery={setQuery} setLimit={setQueryLimit} />
       <DossierPagination pagination={pagination} />
-      <div className="flex h-full items-center justify-between px-12">
-        {offset !== 0 ? (
-          <div>
-            <ArrowLeftCircle
-              onClick={() => handleOffset('left')}
-              size={60}
-              className="text-zinc-400 transition-colors hover:text-zinc-100"
-            />
-          </div>
-        ) : (
-          ''
-        )}
-        <AgentDossier characters={characters} />
-        {offset !== pagination.total ? (
-          <ArrowRightCircle
-            onClick={() => handleOffset('right')}
-            size={60}
-            className="text-zinc-400 transition-colors hover:text-zinc-100"
-          />
-        ) : (
-          ''
-        )}
-      </div>
+      <DossierContent
+        offset={offset}
+        total={pagination.total}
+        handleOffset={handleOffset}
+        characters={characters}
+      />
     </>
   )
 }
