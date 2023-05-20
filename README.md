@@ -10,6 +10,19 @@ This project is a practical test for a React front-end development position at O
 ## Project Objective
 The objective of this project is to assess skills in React.js development by creating a responsive application that interacts with the Marvel API. The application should allow users to list and search for Marvel characters and view their details. The task is to implement the character listing functionality with pagination and search features, as well as the character details view. The project should demonstrate proficiency in React.js, including data fetching from an API, handling user interactions, and designing responsive layouts, following best practices in React.js development.
 
+
+  1. Marvel Developer Account: Create a developer account on the Marvel Developer Portal to obtain the necessary API credentials.
+
+  2. API Base URL: Use the base URL provided by the Marvel API for all API requests.
+
+  3. Listing Characters: Fetch the list of characters using the following endpoint:
+      Endpoint: GET /v1/public/characters
+      Use pagination parameters to control the number of items per page and navigate through the results.
+
+  4. Character Details: Retrieve the details of a specific character using the following endpoint:
+      Endpoint: GET /v1/public/characters/{characterId}
+      Replace {characterId} with the actual ID of the character you want to fetch.
+      
 ## Tech   
 - [Next.js](https://nextjs.org/): A popular framework for building React applications with server-side rendering, static site generation, and more.
 - [React](https://react.dev/): A JavaScript library for building user interfaces.
