@@ -3,8 +3,12 @@
 This project is a practical test for a React front-end development position at Oystr Robôs. The goal of this application is to create a minimally responsive web app that lists and allows searching for Marvel characters using the Marvel API.
 
 ## Table of Contents
+- [Project Objectives](#project-objecives)
 - [Tech](#tech)
 - [Setup/Getting Started](#setupgetting-started) 
+
+## Project Objective
+The objective of this project is to assess skills in React.js development by creating a responsive application that interacts with the Marvel API. The application should allow users to list and search for Marvel characters and view their details. The task is to implement the character listing functionality with pagination and search features, as well as the character details view. The project should demonstrate proficiency in React.js, including data fetching from an API, handling user interactions, and designing responsive layouts, following best practices in React.js development.
 
 ## Tech   
 - [Next.js](https://nextjs.org/): A popular framework for building React applications with server-side rendering, static site generation, and more.
