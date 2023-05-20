@@ -133,15 +133,15 @@ export default function Profile({
   return (
     <div className="mt-8 min-h-screen overflow-x-hidden overflow-y-scroll pb-8">
       <Link
-        className="flex gap-2 ps-12 text-2xl text-zinc-300 hover:text-zinc-100"
+        className="flex gap-2 text-2xl text-zinc-300 hover:text-zinc-100 md:ps-12"
         href="/dossier"
       >
         <ArrowLeft size={32} /> Back
       </Link>
-      <div className="grid grid-cols-5">
-        <div className="col-span-2">
+      <div className="grid grid-cols-1 lg:grid-cols-5">
+        <div className="lg:col-span-2 lg:pe-8">
           <div className="flex w-full flex-col items-center justify-center overflow-hidden rounded-md">
-            <h2 className="text-center text-5xl font-bold uppercase leading-relaxed tracking-wider text-zinc-200">
+            <h2 className="mt-12 text-center text-xl font-bold uppercase leading-relaxed tracking-wider text-zinc-200 lg:text-5xl">
               {formatCharacterName(character?.name ?? '')}
             </h2>
             <Image
@@ -151,18 +151,31 @@ export default function Profile({
               alt={character?.name ?? ''}
             />
             <p
-              className={`p-8 text-justify text-3xl leading-relaxed tracking-wide text-zinc-200`}
+              className={`my-8 text-justify text-xl leading-relaxed tracking-wide text-zinc-200 lg:my-0 lg:p-8 lg:text-3xl`}
             >
               {descriptionFormatted}
             </p>
           </div>
         </div>
-        <div className="col-span-3 border-2">
+        <div className="border-2 lg:col-span-3">
           <div className="text-5xl font-medium uppercase">
-            <nav className="-mb-px flex h-16 text-4xl font-extrabold">
+            <nav className="md:hidden">
+              <label htmlFor="tabs" className="sr-only">
+                Select your country
+              </label>
+              <select
+                id="tabs"
+                className="block h-16 w-full border-zinc-50 bg-zinc-950 p-2.5 text-center text-3xl font-extrabold uppercase text-zinc-100 sm:text-3xl"
+              >
+                <option>Comics</option>
+                <option>Events</option>
+                <option>Series</option>
+              </select>
+            </nav>
+            <nav className="-mb-px hidden h-16 flex-wrap text-4xl font-extrabold md:flex md:flex-nowrap">
               <button
                 onClick={() => setActiveTab(1)}
-                className={`w-1/3 py-4 text-center font-extrabold uppercase ${
+                className={`w-full px-2 py-4 text-center font-extrabold uppercase lg:w-1/3 lg:px-0 ${
                   activeTab === 1
                     ? 'border-e-2 border-zinc-50 text-zinc-100'
                     : 'border-b-2 text-zinc-500'
@@ -172,7 +185,7 @@ export default function Profile({
               </button>
               <button
                 onClick={() => setActiveTab(2)}
-                className={`w-1/3 py-4 text-center font-extrabold uppercase ${
+                className={`w-full px-2 py-4 text-center font-extrabold uppercase lg:w-1/3 lg:px-0 ${
                   activeTab === 2
                     ? 'border-e-2 border-s-2 border-zinc-50 text-zinc-100'
                     : 'border-b-2 text-zinc-500'
@@ -182,7 +195,7 @@ export default function Profile({
               </button>
               <button
                 onClick={() => setActiveTab(3)}
-                className={`w-1/3 py-4 text-center font-extrabold uppercase ${
+                className={`w-full px-2 py-4 text-center font-extrabold uppercase lg:w-1/3 lg:px-0 ${
                   activeTab === 3
                     ? 'border-s-2 border-zinc-50 text-zinc-100'
                     : 'border-b-2 text-zinc-500'
