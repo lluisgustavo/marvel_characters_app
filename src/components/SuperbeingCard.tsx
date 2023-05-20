@@ -4,6 +4,7 @@ import {
   formatDescription,
   getImageUrl,
 } from '@/utils/character'
+import { useRouter } from 'next/navigation'
 
 interface CharacterCard {
   characterId: number
@@ -21,16 +22,23 @@ export function SuperbeingCard({
   description,
   thumbnail,
 }: CharacterCard) {
+  const router = useRouter()
   const imageUrl = getImageUrl(thumbnail)
   const nameFormatted = formatCharacterName(name)
   const descriptionFormatted = formatDescription(description)
 
-  async function showProfileCard() {}
+  async function showProfileCard() {
+    try {
+      router.push(`/dossier/profile/${characterId}`)
+    } catch (error) {
+      console.error('Error fetching character profile:', error)
+    }
+  }
 
   return (
     <div
       onClick={() => showProfileCard()}
-      className="group col-span-1 flex flex-1 cursor-pointer flex-col flex-wrap  bg-transparent transition-colors hover:border-2 hover:border-teal-300 hover:bg-slate-900"
+      className="group flex flex-1 cursor-pointer flex-col bg-transparent p-2 transition-colors hover:border-2 hover:border-teal-300 hover:bg-slate-900"
     >
       <h2 className="mb-2 flex h-24 items-center justify-center whitespace-pre-wrap text-center text-2xl font-bold uppercase leading-relaxed tracking-wide text-zinc-300 transition-colors group-hover:text-zinc-100">
         {nameFormatted}
