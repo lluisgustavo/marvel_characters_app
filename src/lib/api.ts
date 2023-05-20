@@ -2,13 +2,41 @@ import axios, { AxiosError } from 'axios'
 import md5 from 'md5'
 import { notFound } from 'next/navigation'
 
-const baseURL = 'http://gateway.marvel.com/v1/public/'
-const publicKey = process.env.NEXT_PUBLIC_MARVEL_PUBLIC_KEY as string
-const privateKey = process.env.NEXT_PUBLIC_MARVEL_PRIVATE_KEY as string
-const ts = Number(new Date())
-const hash = md5(ts + privateKey + publicKey)
+/**
+ * Base URL for the Marvel API.
+ * @type {string}
+ */
+const baseURL: string = 'http://gateway.marvel.com/v1/public/'
 
-const api = axios.create({
+/**
+ * Public key for accessing the Marvel API.
+ * @type {string}
+ */
+const publicKey: string = process.env.NEXT_PUBLIC_MARVEL_PUBLIC_KEY as string
+
+/**
+ * Private key for accessing the Marvel API.
+ * @type {string}
+ */
+const privateKey: string = process.env.NEXT_PUBLIC_MARVEL_PRIVATE_KEY as string
+
+/**
+ * Current timestamp as a number.
+ * @type {number}
+ */
+const ts: number = Number(new Date())
+
+/**
+ * MD5 Hash generated using the timestamp, private key, and public key.
+ * @type {string}
+ */
+const hash: string = md5(ts + privateKey + publicKey)
+
+/**
+ * Axios instance with predefined configuration for the Marvel API.
+ * @type {import('axios').AxiosInstance}
+ */
+const api: import('axios').AxiosInstance = axios.create({
   baseURL,
   params: {
     ts,
@@ -18,7 +46,14 @@ const api = axios.create({
   },
 })
 
-export const fetchData = async (characterId: number) => {
+/**
+ * Fetches data for a specific character.
+ * @param {number} characterId - The ID of the character.
+ * @returns {Promise<object> | undefined} The fetched data.
+ */
+export const fetchData = async (
+  characterId: number,
+): Promise<object | undefined> => {
   try {
     const responses = await Promise.all([
       api.get(`/characters/${characterId}`),
@@ -46,13 +81,23 @@ export const fetchData = async (characterId: number) => {
 
     console.error(err)
   }
+
+  return undefined
 }
 
+/**
+ * Fetches characters based on the provided query, offset, and limit.
+ * @param {string} query - The search query.
+ * @param {number} characterOffset - The offset for pagination.
+ * @param {number} queryLimit - The limit for the number of characters to fetch.
+ * @returns {Promise<object>} The fetched characters and pagination information.
+ * @throws {Error} Error fetching characters.
+ */
 export const fetchCharacters = async (
   query: string,
   characterOffset: number,
   queryLimit: number,
-) => {
+): Promise<object> => {
   const queryParams = query !== '' ? { nameStartsWith: query } : {}
 
   try {
