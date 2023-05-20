@@ -23,6 +23,7 @@ export function formatCharacterName(name: string): string {
 
 /**
  * Formats the description by parsing the HTML tags and truncating the text if it exceeds 100 characters.
+ * If there is no parsedDescription returns a message to display.
  * @param description - The description string to format.
  * @returns The formatted description.
  */
