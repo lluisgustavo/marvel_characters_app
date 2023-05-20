@@ -1,8 +1,10 @@
 import React from 'react'
 import Slider, { Settings } from 'react-slick'
+import ShieldLogo from '@/assets/logo.svg'
 import Image from 'next/image'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
+import { getImageUrl } from '@/utils/character'
 
 interface CarouselImage {
   id: number
@@ -44,47 +46,54 @@ export function Carousel({ images }: CarouselProps) {
   }
 
   if (!images || images.length === 0) {
-    // Render a loading state or placeholder if the images are not available yet
     return (
-      <div className="flex items-center justify-center text-3xl">
-        Loading...
+      <div className="flex h-full min-h-[600px] w-full flex-col items-center justify-center space-y-24">
+        <Image className="w-3/12" src={ShieldLogo} alt="Nothing Found"></Image>
+        <p className="text-3xl">No records found in our database</p>
       </div>
     )
   }
 
   return (
     <Slider {...settings}>
-      {images.map((image) => (
-        <div key={image.id}>
-          <div className="flex justify-center">
-            <p className="p-4 text-center text-2xl font-bold uppercase leading-relaxed tracking-wider text-zinc-200">
-              {image.title}
-            </p>
-          </div>
-          <div className="flex justify-center">
-            {image.thumbnail &&
-              image.thumbnail.path &&
-              image.thumbnail.extension && (
-                <Image
-                  src={`${image.thumbnail.path}.${image.thumbnail.extension}`}
-                  alt={image.title}
-                  width={400}
-                  height={400}
-                />
-              )}
-          </div>
-          <div className="flex justify-center p-12 text-justify text-2xl text-zinc-200">
-            {image.description && image.description !== '' ? (
-              <p>{image.description}</p>
-            ) : (
-              <p>
-                Agent, we regret to inform you that the description has gone
-                missing. Investigation underway.
+      {images.map((image) => {
+        const imageUrl =
+          image.thumbnail && image.thumbnail.path && image.thumbnail.extension
+            ? getImageUrl(image.thumbnail)
+            : ShieldLogo
+
+        return (
+          <div key={image.id}>
+            <div className="flex justify-center">
+              <p className="p-4 text-center text-2xl font-bold uppercase leading-relaxed tracking-wider text-zinc-200">
+                {image.title}
               </p>
-            )}
+            </div>
+            <div className="flex justify-center">
+              {image.thumbnail &&
+                image.thumbnail.path &&
+                image.thumbnail.extension && (
+                  <Image
+                    src={imageUrl}
+                    alt={image.title}
+                    width={400}
+                    height={400}
+                  />
+                )}
+            </div>
+            <div className="flex justify-center p-12 text-justify text-2xl text-zinc-200">
+              {image.description && image.description !== '' ? (
+                <p>{image.description}</p>
+              ) : (
+                <p>
+                  Agent, we regret to inform you that the description has gone
+                  missing. Investigation underway.
+                </p>
+              )}
+            </div>
           </div>
-        </div>
-      ))}
+        )
+      })}
     </Slider>
   )
 }
