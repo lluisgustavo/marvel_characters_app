@@ -13,11 +13,11 @@ export function DossierPagination({ pagination }: DossierPaginationProps) {
 
   return (
     <div className="mt-12">
-      <p className="text-center font-roboto font-bold uppercase tracking-wide text-zinc-300">
+      <p className="text-center font-roboto text-2xl font-bold uppercase tracking-wide text-zinc-300">
         Revealing {pagination.limit} subjects: #{start} to #{end} out of{' '}
         {pagination.total} known subjects
       </p>
-      <p className="mt-2 text-center font-classified uppercase text-gray-400">
+      <p className="mt-2 text-center font-classified text-2xl uppercase text-gray-400">
         {' '}
         Classified information.
       </p>
