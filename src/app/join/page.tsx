@@ -26,7 +26,7 @@ export default function Join() {
           <h2 className="text-3xl font-bold leading-relaxed tracking-wide">
             Benefits of Joining:
           </h2>
-          <ul className="list-inside list-disc text-2xl leading-relaxed tracking-wide">
+          <ul className="list-inside list-image-[url(~/src/assets/shield.png)] align-middle text-2xl leading-relaxed tracking-wide">
             <li>Access to advanced technology and resources</li>
             <li>Intensive training programs to enhance your skills</li>
             <li>Thrilling missions and adventures</li>
