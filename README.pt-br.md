@@ -14,8 +14,13 @@ Este projeto é um teste prático para uma posição de desenvolvimento front-en
 O objetivo deste projeto é avaliar as habilidades em desenvolvimento React.js, criando uma aplicação responsiva que interaja com a Marvel API. A aplicação deve permitir aos usuários listar e buscar personagens da Marvel e visualizar seus detalhes. A tarefa é implementar a funcionalidade de listagem de personagens com paginação e recursos de busca, bem como a visualização dos detalhes do personagem. O projeto deve demonstrar proficiência em React.js, incluindo busca de dados em uma API, manipulação de interações do usuário e design de layouts responsivos, seguindo as melhores práticas no desenvolvimento React.js.
 
 ## Diretivas
-1. Listagem:
-### GET /v1/public/characters
+### Início  
+- Para criar o App, utilizar a API que a Marvel disponibiliza.
+- Crie uma conta de desenvolvedor e consulte a documentação.
+- Link da API -> https://developer.marvel.com/
+
+### Listagem:
+#### GET /v1/public/characters
 
   - Utilize este endpoint para listar os personagens.
   - A listagem deve exibir pelo menos 10 itens por página.
@@ -24,8 +29,8 @@ O objetivo deste projeto é avaliar as habilidades em desenvolvimento React.js, 
   - Ao selecionar um personagem, mostrar informações adicionais sobre ele na seção "Detalhes".
   - Você tem liberdade para projetar o layout desta tela.
 
-2. Detalhes:
-### GET /v1/public/characters/{characterId}
+### Detalhes:
+#### GET /v1/public/characters/{characterId}
 
   - Utilize este endpoint para mostrar os detalhes de um personagem.
   - Exibir os detalhes do personagem selecionado.
