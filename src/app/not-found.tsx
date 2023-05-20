@@ -20,7 +20,7 @@ export default function NotFound() {
         onClick={() => router.back()}
         className="mt-8 text-lg text-gray-400 underline hover:text-gray-200"
       >
-        Return to Dossier
+        Return
       </div>
     </div>
   )
