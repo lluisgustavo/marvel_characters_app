@@ -1,4 +1,4 @@
-import React from 'react'
+import { useState } from 'react'
 import Slider, { Settings } from 'react-slick'
 import ShieldLogo from '@/assets/logo.svg'
 import Image from 'next/image'
@@ -22,35 +22,39 @@ interface CarouselProps {
 }
 
 interface ArrowProps {
+  offset: number
   direction: 'left' | 'right'
   onClick?: () => void
+  total: number
 }
 
-const Arrow = ({ direction, onClick }: ArrowProps) => (
+const Arrow = ({ offset, direction, onClick, total }: ArrowProps) => (
   <div
     onClick={onClick}
     className={`mt-24 flex justify-center md:absolute ${
       direction === 'left' ? 'left-1' : 'right-1'
     } top-1/2 -translate-y-1/2`}
   >
-    {direction === 'left' ? <ArrowLeft size={64} /> : <ArrowRight size={64} />}
+    {direction === 'left' && offset !== 0 && <ArrowLeft size={64} />}
+    {direction === 'right' && offset !== total - 1 && <ArrowRight size={64} />}
   </div>
 )
 
 export function Carousel({ images }: CarouselProps) {
+  const [offset, setOffset] = useState(0)
+  const total = images.length
+
   const settings: Settings = {
     dots: false,
     infinite: false,
-    centerPadding: '60px',
-    speed: 500,
-    prevArrow: <Arrow direction="left" />,
-    nextArrow: <Arrow direction="right" />,
+    speed: 5000,
+    prevArrow: <Arrow offset={offset} total={total} direction="left" />,
+    nextArrow: <Arrow offset={offset} total={total} direction="right" />,
     slidesToShow: 1,
     slidesToScroll: 1,
     swipeToSlide: true,
-    arrows: true,
     lazyLoad: 'ondemand', // Set the value of lazyLoad to 'ondemand' or 'progressive' based on your requirements
-    autoplay: false,
+    autoplay: true,
     responsive: [
       {
         breakpoint: 768,
@@ -62,6 +66,9 @@ export function Carousel({ images }: CarouselProps) {
         },
       },
     ],
+    beforeChange: function (currentSlide, nextSlide) {
+      setOffset(nextSlide)
+    },
   }
 
   if (!images || images.length === 0) {
@@ -100,7 +107,7 @@ export function Carousel({ images }: CarouselProps) {
                   />
                 )}
             </div>
-            <div className="flex justify-center p-12 text-justify text-2xl text-zinc-200">
+            <div className="flex justify-center px-24 py-12 text-justify text-2xl text-zinc-200">
               {image.description && image.description !== '' ? (
                 <p>{image.description}</p>
               ) : (
