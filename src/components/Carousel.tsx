@@ -27,6 +27,7 @@ export function Carousel({ images }: CarouselProps) {
     slidesToShow: 1,
     slidesToScroll: 1,
     swipeToSlide: true,
+    arrows: false,
     lazyLoad: 'ondemand', // Set the value of lazyLoad to 'ondemand' or 'progressive' based on your requirements
     autoplay: false,
     responsive: [
@@ -72,7 +73,7 @@ export function Carousel({ images }: CarouselProps) {
                 />
               )}
           </div>
-          <div className="flex justify-center p-12 text-justify text-2xl">
+          <div className="flex justify-center p-12 text-justify text-2xl text-zinc-200">
             {image.description && image.description !== '' ? (
               <p>{image.description}</p>
             ) : (
