@@ -47,7 +47,7 @@ export function Carousel({ images }: CarouselProps) {
   const settings: Settings = {
     dots: false,
     infinite: false,
-    speed: 5000,
+    speed: 1000,
     prevArrow: <Arrow offset={offset} total={total} direction="left" />,
     nextArrow: <Arrow offset={offset} total={total} direction="right" />,
     slidesToShow: 1,
