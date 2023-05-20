@@ -28,7 +28,13 @@ To create the app, we will be utilizing the Marvel API. Follow the steps below t
 npm install
 ```
 
-5. Start the development server:
+7. You can run the project by executing:
+
+```
+npm start
+```
+
+8. You can also run the development server by executing:
 
 
 ```
