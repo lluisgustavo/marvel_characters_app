@@ -31,7 +31,7 @@ interface ArrowProps {
 const Arrow = ({ offset, direction, onClick, total }: ArrowProps) => (
   <div
     onClick={onClick}
-    className={`mt-24 flex justify-center md:absolute ${
+    className={`z-10 mt-24 flex justify-center md:absolute ${
       direction === 'left' ? 'left-1' : 'right-1'
     } top-1/2 -translate-y-1/2`}
   >
