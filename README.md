@@ -21,8 +21,8 @@ To create the app, we will be utilizing the Marvel API. Follow the steps below t
 3. Rename `.env.example` file to `.env`
 2. Obtain the API keys required for accessing the Marvel API.
 4. Replace `NEXT_PUBLIC_MARVEL_PUBLIC_KEY` and `NEXT_PUBLIC_MARVEL_PRIVATE_KEY` to the keys provided by marvel's developer portal.
-3. Clone this repository to your local machine.
-4. Install the necessary dependencies by running the following command:
+5. Clone this repository to your local machine.
+6. Install the necessary dependencies by running the following command:
 
 ```
 npm install
