@@ -41,21 +41,23 @@ export function SearchBar({ setQuery, setLimit }: SearchBarProps) {
           onChange={handleQueryChange}
           type="search"
           id="search"
-          className="block h-full w-full rounded-lg border border-gray-300 bg-zinc-950 p-4 pl-10 font-sans text-3xl uppercase leading-relaxed text-zinc-300  focus:border-0 focus:ring-0"
+          className="h-16 rounded-lg border-2 border-gray-300 bg-zinc-950 p-2 pl-10 font-sans text-3xl uppercase leading-relaxed text-zinc-300 outline-offset-1 focus:ring-0"
           placeholder="Search for potential threats"
         />
       </div>
-      <select
-        value={limit}
-        onChange={handleLimitChange}
-        className="focus:border-primary-500 ml-2 h-full rounded-lg border border-gray-300 bg-zinc-950 p-4 text-3xl  text-zinc-300 focus:outline-none focus:ring-0"
-      >
-        <option value={10}>10</option>
-        <option value={25}>25</option>
-        <option value={50}>50</option>
-        <option value={75}>75</option>
-        <option value={100}>100</option>
-      </select>
+      <div className="relative h-full">
+        <select
+          value={limit}
+          onChange={handleLimitChange}
+          className="ml-4 h-16 rounded-lg border-2 border-gray-300 bg-zinc-950 p-2 font-sans text-3xl text-zinc-300 focus:ring-0"
+        >
+          <option value={10}>10</option>
+          <option value={25}>25</option>
+          <option value={50}>50</option>
+          <option value={75}>75</option>
+          <option value={100}>100</option>
+        </select>
+      </div>
     </div>
   )
 }
