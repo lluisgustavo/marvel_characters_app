@@ -139,9 +139,9 @@ export default function Profile({
         <ArrowLeft size={32} /> Back
       </Link>
       <div className="grid grid-cols-1 lg:grid-cols-5">
-        <div className="lg:col-span-2 lg:pe-8">
+        <div className="lg:col-span-2 lg:pe-8 ">
           <div className="flex w-full flex-col items-center justify-center overflow-hidden rounded-md">
-            <h2 className="mt-12 text-center text-xl font-bold uppercase leading-relaxed tracking-wider text-zinc-200 lg:text-5xl">
+            <h2 className="p-12 text-center text-xl font-bold uppercase leading-relaxed tracking-wider text-zinc-200 lg:text-5xl">
               {formatCharacterName(character?.name ?? '')}
             </h2>
             <Image
