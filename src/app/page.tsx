@@ -17,7 +17,7 @@ export default function Home() {
   }
 
   return (
-    <main className="flex w-full flex-col items-center space-y-12 text-center font-classified text-5xl">
+    <main className="flex w-full flex-col items-center space-y-16 text-center font-classified text-5xl">
       <h1>Are you a S.H.I.E.L.D agent?</h1>
       <button
         className="w-1/2 font-bold text-white hover:underline"
