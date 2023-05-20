@@ -16,9 +16,9 @@ export function formatCharacterName(name: string): string {
   const nameParts = name.split('(')
   const characterName = nameParts[0].trim()
   const realName =
-    nameParts.length > 1 ? nameParts[1].replace(')', '').trim() : ''
+    nameParts.length > 1 ? '\n(' + nameParts.slice(1).join('(').trim() : ''
 
-  return `${characterName}\n${realName}`
+  return `${characterName}${realName}`
 }
 
 /**
@@ -57,6 +57,9 @@ export function getImageUrl(thumbnail: Thumbnail): string {
  * @returns The parsed description.
  */
 export function parseDescription(description: string): string {
+  if (description.length === 0)
+    return 'Warning: No information found. Proceed with caution.'
+
   const parser = new DOMParser()
   const doc = parser.parseFromString(description, 'text/html')
   return doc.body.textContent || ''
