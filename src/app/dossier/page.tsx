@@ -3,10 +3,10 @@ import { DossierContent } from '@/components/DossierContent'
 import { DossierPagination } from '@/components/DossierPagination'
 import { ReturnButton } from '@/components/ReturnButton'
 import { SearchBar } from '@/components/SearchBar'
-import api from '@/lib/api'
+import { fetchCharacters } from '@/lib/api'
 import { deleteCookie } from 'cookies-next'
 import { useRouter } from 'next/navigation'
-import { useState, useCallback, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 
 interface Character {
   id: number
@@ -51,24 +51,24 @@ export default function Dossier() {
     }
   }
 
-  const fetchCharacters = useCallback(() => {
-    const queryParams = query !== '' ? { nameStartsWith: query } : {}
-
-    api
-      .get(`/characters`, {
-        params: { ...queryParams, limit: queryLimit, offset },
-      })
-      .then((response) => {
-        const { offset, limit, total, count, results } = response.data.data
-        setPagination({ offset, limit, total, count })
-        setCharacters(results)
-      })
-      .catch()
-  }, [query, offset, queryLimit])
-
   useEffect(() => {
-    fetchCharacters()
-  }, [fetchCharacters])
+    const fetchData = async () => {
+      try {
+        const { pagination, characters } = await fetchCharacters(
+          query,
+          offset,
+          queryLimit,
+        )
+        setPagination(pagination)
+        setCharacters(characters)
+      } catch (error) {
+        // Handle error if needed
+        console.error('Error fetching characters:', error)
+      }
+    }
+
+    fetchData()
+  }, [query, offset, queryLimit])
 
   const handleReturnClick = () => {
     deleteCookie('isAgent')
