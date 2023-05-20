@@ -1,6 +1,6 @@
 'use client'
 import Image from 'next/image'
-import ShieldLogo from '../assets/logo.svg'
+import ShieldLogo from '@/assets/logo.svg'
 import { usePathname } from 'next/navigation'
 
 export function Logo() {
