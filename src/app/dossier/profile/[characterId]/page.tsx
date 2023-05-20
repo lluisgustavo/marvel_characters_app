@@ -1,5 +1,10 @@
 'use client'
-import { useState, useEffect } from 'react'
+
+import React, { useState, useEffect } from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
+import { ArrowLeft } from 'lucide-react'
+
 import { fetchData } from '@/lib/api'
 import { notFound } from 'next/navigation'
 import {
@@ -7,11 +12,8 @@ import {
   parseDescription,
   getImageUrl,
 } from '@/utils/character'
-import Image from 'next/image'
 import { Carousel } from '@/components/Carousel'
 import ShieldLogo from '@/assets/logo.svg'
-import Link from 'next/link'
-import { ArrowLeft } from 'lucide-react'
 
 interface Character {
   id: number
