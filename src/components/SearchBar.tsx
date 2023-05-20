@@ -25,7 +25,7 @@ export function SearchBar({ setQuery, setLimit }: SearchBarProps) {
   }
 
   return (
-    <div className="flex w-full items-center justify-center">
+    <div className="flex w-full flex-col items-center justify-center gap-8 md:flex-row md:gap-0">
       <label
         htmlFor="search"
         className="sr-only mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -41,7 +41,7 @@ export function SearchBar({ setQuery, setLimit }: SearchBarProps) {
           onChange={handleQueryChange}
           type="search"
           id="search"
-          className="h-16 rounded-lg border-2 border-gray-300 bg-zinc-950 p-2 pl-10 font-sans text-3xl uppercase leading-relaxed text-zinc-300 outline-offset-1 focus:ring-0"
+          className="h-16 max-w-sm rounded-lg border-2 border-gray-300 bg-zinc-950 p-2 pl-10 font-sans text-xl uppercase leading-relaxed text-zinc-300 outline-offset-1 focus:ring-0 md:max-w-none md:text-3xl"
           placeholder="Search for potential threats"
         />
       </div>
@@ -49,7 +49,7 @@ export function SearchBar({ setQuery, setLimit }: SearchBarProps) {
         <select
           value={limit}
           onChange={handleLimitChange}
-          className="ml-4 h-16 rounded-lg border-2 border-gray-300 bg-zinc-950 p-2 font-sans text-3xl text-zinc-300 focus:ring-0"
+          className="ml-4 h-16 rounded-lg border-2 border-gray-300 bg-zinc-950 p-2 font-sans text-xl text-zinc-300 focus:ring-0 md:text-3xl"
         >
           <option value={10}>10</option>
           <option value={25}>25</option>
