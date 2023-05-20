@@ -26,15 +26,17 @@ export function DossierContent({
 }: DossierContentProps) {
   return (
     <div className="flex h-full items-center justify-between px-12">
-      {offset !== 0 && (
-        <div>
-          <ArrowLeftCircle
-            onClick={() => handleOffset('left')}
-            size={60}
-            className="text-zinc-400 transition-colors hover:text-zinc-100"
-          />
-        </div>
-      )}
+      <div>
+        <ArrowLeftCircle
+          onClick={() => handleOffset('left')}
+          size={60}
+          className={`${
+            offset !== 0
+              ? 'text-zinc-400 hover:text-zinc-100'
+              : 'text-transparent'
+          }  transition-colors `}
+        />
+      </div>
       <div className="container mx-auto grid grid-cols-5 gap-8 p-6">
         {characters.map((character) => (
           <SuperbeingCard
@@ -50,7 +52,11 @@ export function DossierContent({
         <ArrowRightCircle
           onClick={() => handleOffset('right')}
           size={60}
-          className="text-zinc-400 transition-colors hover:text-zinc-100"
+          className={`${
+            offset !== total
+              ? 'text-zinc-400 hover:text-zinc-100'
+              : 'text-transparent'
+          }  transition-colors `}
         />
       )}
     </div>
