@@ -5,6 +5,7 @@ import Image from 'next/image'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import { getImageUrl } from '@/utils/character'
+import { ArrowLeft, ArrowRight } from 'lucide-react'
 
 interface CarouselImage {
   id: number
@@ -20,16 +21,34 @@ interface CarouselProps {
   images: CarouselImage[]
 }
 
+interface ArrowProps {
+  direction: 'left' | 'right'
+  onClick?: () => void
+}
+
+const Arrow = ({ direction, onClick }: ArrowProps) => (
+  <div
+    onClick={onClick}
+    className={`mt-24 flex justify-center md:absolute ${
+      direction === 'left' ? 'left-1' : 'right-1'
+    } top-1/2 -translate-y-1/2`}
+  >
+    {direction === 'left' ? <ArrowLeft size={64} /> : <ArrowRight size={64} />}
+  </div>
+)
+
 export function Carousel({ images }: CarouselProps) {
   const settings: Settings = {
     dots: false,
     infinite: false,
     centerPadding: '60px',
     speed: 500,
+    prevArrow: <Arrow direction="left" />,
+    nextArrow: <Arrow direction="right" />,
     slidesToShow: 1,
     slidesToScroll: 1,
     swipeToSlide: true,
-    arrows: false,
+    arrows: true,
     lazyLoad: 'ondemand', // Set the value of lazyLoad to 'ondemand' or 'progressive' based on your requirements
     autoplay: false,
     responsive: [
