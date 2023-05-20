@@ -1,5 +1,6 @@
 'use client'
 import Image from 'next/image'
+import Link from 'next/link'
 import ShieldLogo from '@/assets/logo.svg'
 import { usePathname } from 'next/navigation'
 
@@ -19,11 +20,13 @@ export function Logo() {
 
   return (
     <div className={`${bgClassName} flex items-center justify-center`}>
-      <Image
-        className={`${logoClassName} transition-transform`}
-        src={ShieldLogo}
-        alt="Strategic Homeland Intervention, Enforcement and Logistics Division"
-      ></Image>
+      <Link href="/">
+        <Image
+          className={`${logoClassName} transition-transform`}
+          src={ShieldLogo}
+          alt="Strategic Homeland Intervention, Enforcement and Logistics Division"
+        />
+      </Link>
     </div>
   )
 }
