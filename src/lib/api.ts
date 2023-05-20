@@ -184,8 +184,10 @@ export const fetchCharacters = async (
       pagination: { offset, limit, total, count },
       characters: results,
     }
-  } catch {
-    throw new Error('Error fetching characters')
+  } catch (err) {
+    const axiosError = err as AxiosError
+
+    throw new Error(axiosError.response?.statusText)
   }
 }
 
