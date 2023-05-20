@@ -54,6 +54,7 @@ interface Pagination {
   offset: number
   total: number
 }
+
 /**
  * Base URL for the Marvel API.
  * @type {string}
