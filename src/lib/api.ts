@@ -2,6 +2,58 @@ import axios, { AxiosError } from 'axios'
 import md5 from 'md5'
 import { notFound } from 'next/navigation'
 
+interface Character {
+  id: number
+  name: string
+  description: string
+  thumbnail: {
+    path: string
+    extension: string
+  }
+}
+
+interface Comic {
+  id: number
+  title: string
+  issueNumber: number
+  variantDescription: string
+  description: string
+  thumbnail: {
+    path: string
+    extension: string
+  }
+}
+
+interface Event {
+  id: number
+  title: string
+  issueNumber: number
+  variantDescription: string
+  description: string
+  thumbnail: {
+    path: string
+    extension: string
+  }
+}
+
+interface Series {
+  id: number
+  title: string
+  issueNumber: number
+  variantDescription: string
+  description: string
+  thumbnail: {
+    path: string
+    extension: string
+  }
+}
+
+interface Pagination {
+  count: number
+  limit: number
+  offset: number
+  total: number
+}
 /**
  * Base URL for the Marvel API.
  * @type {string}
@@ -53,7 +105,15 @@ const api: import('axios').AxiosInstance = axios.create({
  */
 export const fetchData = async (
   characterId: number,
-): Promise<object | undefined> => {
+): Promise<
+  | {
+      character?: Character | undefined
+      comics: Comic[]
+      events: Event[]
+      series: Series[]
+    }
+  | undefined
+> => {
   try {
     const responses = await Promise.all([
       api.get(`/characters/${characterId}`),
@@ -90,14 +150,14 @@ export const fetchData = async (
  * @param {string} query - The search query.
  * @param {number} characterOffset - The offset for pagination.
  * @param {number} queryLimit - The limit for the number of characters to fetch.
- * @returns {Promise<object>} The fetched characters and pagination information.
+ * @returns {Promise<{ pagination: Pagination, characters: Character[] }>} The fetched characters and pagination information.
  * @throws {Error} Error fetching characters.
  */
 export const fetchCharacters = async (
   query: string,
   characterOffset: number,
   queryLimit: number,
-): Promise<object> => {
+): Promise<{ pagination: Pagination; characters: Character[] }> => {
   const queryParams = query !== '' ? { nameStartsWith: query } : {}
 
   try {
