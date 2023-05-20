@@ -1,5 +1,5 @@
 import { ArrowLeftCircle, ArrowRightCircle } from 'lucide-react'
-import { AgentDossier } from './AgentDossier'
+import { SuperbeingCard } from './SuperbeingCard'
 
 interface Character {
   id: number
@@ -35,7 +35,17 @@ export function DossierContent({
           />
         </div>
       )}
-      <AgentDossier characters={characters} />
+      <div className="container mx-auto grid grid-cols-5 gap-8 p-6">
+        {characters.map((character) => (
+          <SuperbeingCard
+            key={character.id}
+            characterId={character.id}
+            name={character.name}
+            description={character.description}
+            thumbnail={character.thumbnail}
+          />
+        ))}
+      </div>
       {offset !== total && (
         <ArrowRightCircle
           onClick={() => handleOffset('right')}
