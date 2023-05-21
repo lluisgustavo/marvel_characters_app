@@ -46,7 +46,7 @@ export function SuperbeingCard({
       </h2>
       <Image
         data-testid="superbeing-card-image"
-        className="object-fit aspect-square w-full"
+        className="aspect-square h-[250px] w-[250px] object-cover"
         src={imageUrl}
         width={300}
         height={300}
