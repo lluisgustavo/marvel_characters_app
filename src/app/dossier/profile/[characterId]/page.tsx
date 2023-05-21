@@ -12,7 +12,7 @@ import {
   parseDescription,
   getImageUrl,
 } from '@/utils/character'
-import { Carousel } from '@/components/Carousel'
+import { Carousel } from '@/components/Carousel/Carousel'
 import ShieldLogo from '@/assets/logo.svg'
 
 interface Character {
