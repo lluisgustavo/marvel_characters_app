@@ -9,6 +9,7 @@ This project is a practical test for a React front-end development position at O
 - [Project Objectives](#project-objectives)
 - [Directives](#directives)
 - [Tech](#tech)
+- [Development Practices](#development-practices)
 - [Setup/Getting Started](#setupgetting-started)  
 
 ## Project Objectives
@@ -45,6 +46,11 @@ The objective of this project is to assess skills in React.js development by cre
 - [Axios](https://axios-http.com/): A promise-based HTTP client for making API requests from JavaScript or TypeScript.
 - [MD5](https://github.com/pvorb/node-md5): A JavaScript library for generating MD5 hashes, often used for encryption and checksums.
 - [React Slick](https://react-slick.neostack.com/): A carousel component for React applications, used for creating sliders and image carousels.
+
+
+## Development Practices
+- Conventional Commits: This project follows the [Conventional Commits](https://www.conventionalcommits.org/) format for commit messages. 
+- JSDoc: This project utilizes [JSDoc](https://jsdoc.app/) comments to provide documentation for the codebase. JSDoc is a popular way to document JavaScript code and generate API documentation.
 
 ## Setup/Getting Started
 To create the app, we will be utilizing the Marvel API. Follow the steps below to set up your development environment:
