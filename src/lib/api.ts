@@ -59,7 +59,7 @@ interface Pagination {
  * Base URL for the Marvel API.
  * @type {string}
  */
-const baseURL: string = 'http://gateway.marvel.com/v1/public/'
+const baseURL: string = 'https://gateway.marvel.com/v1/public/'
 
 /**
  * Public key for accessing the Marvel API.
