@@ -30,7 +30,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body
-        className={`${poppins.variable} ${specialElite.variable} ${roboto.variable} m-16 max-h-screen bg-darkgrey font-sans text-gray-100`}
+        className={`${poppins.variable} ${specialElite.variable} ${roboto.variable} m-4 max-h-screen bg-darkgrey font-sans text-gray-100 sm:m-6 md:m-8 lg:m-16`}
       >
         <Logo />
         {children}
