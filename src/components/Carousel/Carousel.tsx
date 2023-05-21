@@ -33,7 +33,7 @@ const Arrow = ({ offset, direction, onClick, total }: ArrowProps) => (
     onClick={onClick}
     className={`z-10 mt-24 flex justify-center md:absolute ${
       direction === 'left' ? 'left-1' : 'right-1'
-    } top-1/2 -translate-y-1/2`}
+    } top-1/2 -translate-y-1/2 cursor-pointer`}
   >
     {direction === 'left' && offset !== 0 && <ArrowLeft size={64} />}
     {direction === 'right' && offset !== total - 1 && <ArrowRight size={64} />}
