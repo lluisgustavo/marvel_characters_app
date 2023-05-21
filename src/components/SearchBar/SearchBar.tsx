@@ -1,14 +1,21 @@
 'use client'
 
 import { Search } from 'lucide-react'
-import { ChangeEvent, Dispatch, SetStateAction, useState } from 'react'
+import {
+  ChangeEvent,
+  Dispatch,
+  SetStateAction,
+  useEffect,
+  useState,
+} from 'react'
 
 export interface SearchBarProps {
   setQuery: Dispatch<SetStateAction<string>>
   setLimit: Dispatch<SetStateAction<number>>
+  setLoading: Dispatch<SetStateAction<boolean>>
 }
 
-export function SearchBar({ setQuery, setLimit }: SearchBarProps) {
+export function SearchBar({ setQuery, setLimit, setLoading }: SearchBarProps) {
   const [query, setLocalQuery] = useState('')
   const [limit, setLocalLimit] = useState(10)
 
@@ -23,6 +30,23 @@ export function SearchBar({ setQuery, setLimit }: SearchBarProps) {
     setLocalLimit(newLimit)
     setLimit(newLimit)
   }
+
+  useEffect(() => {
+    const debounceTimer = setTimeout(() => {
+      setLoading(false)
+      setQuery(query)
+    }, 1000)
+
+    setLoading(true)
+
+    return () => {
+      clearTimeout(debounceTimer)
+    }
+  }, [query, setLoading, setQuery])
+
+  useEffect(() => {
+    setLimit(limit)
+  }, [limit, setLimit])
 
   return (
     <div className="flex w-full flex-col items-center justify-center gap-8 md:flex-row md:gap-0">
