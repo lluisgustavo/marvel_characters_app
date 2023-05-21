@@ -2,7 +2,7 @@
 [![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/lluisgustavo/marvel_characters_app/blob/main/README.md)
 [![pt-br](https://img.shields.io/badge/lang-pt--br-green.svg)](https://github.com/lluisgustavo/marvel_characters_app/blob/main/README.pt-br.md)
 
-Este projeto é um teste prático para uma posição de desenvolvimento front-end React na Oystr Robôs. O objetivo desta aplicação é criar um aplicativo web responsivo que liste e permita a busca de personagens da Marvel usando a Marvel API.
+Este projeto é um teste prático para uma posição de desenvolvimento front-end React na Oystr Robôs.
 
 ## Table of Contents
 - [Objetivos do Projeto](#objetivos-do-projeto)
