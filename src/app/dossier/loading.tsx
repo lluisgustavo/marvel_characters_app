@@ -20,3 +20,22 @@ export default function Loading() {
     </div>
   )
 }
+
+export function LoadingDossier() {
+  return (
+    <div
+      role="status"
+      className="h-screen w-full animate-pulse cursor-progress flex-col items-center justify-between space-y-8 pb-12 md:px-12 lg:flex-row"
+    >
+      <div className="mt-2 flex h-40 w-full flex-col items-center justify-center text-center ">
+        <div className="h-12 w-1/3 bg-zinc-600" />
+        <div className="mt-2 h-12 w-1/3 bg-zinc-600" />
+      </div>
+      <div className="container mx-auto grid h-screen grid-cols-1 md:gap-8 lg:grid-cols-2 lg:p-6 xl:grid-cols-3 2xl:grid-cols-5">
+        {[...Array(10)].map((_, index) => (
+          <div key={index} className="h-[500px] bg-zinc-600" />
+        ))}
+      </div>
+    </div>
+  )
+}
