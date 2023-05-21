@@ -34,7 +34,7 @@ export function DossierContent({
             offset !== 0
               ? 'text-zinc-400 hover:text-zinc-100'
               : 'text-transparent'
-          }  transition-colors `}
+          }  cursor-pointer transition-colors `}
           data-testid="left-arrow"
         />
       </div>
@@ -58,7 +58,7 @@ export function DossierContent({
               offset !== total
                 ? 'text-zinc-400 hover:text-zinc-100'
                 : 'text-transparent'
-            }  transition-colors `}
+            }  cursor-pointer transition-colors `}
             data-testid="right-arrow"
           />
         )}
