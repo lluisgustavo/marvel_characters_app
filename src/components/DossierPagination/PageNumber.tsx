@@ -16,7 +16,6 @@ const getPageNumbers = ({
   siblingCount,
   currentPage,
 }: GetPageNumbersProps): PaginationRange => {
-  console.log(total, limit, siblingCount, currentPage)
   const totalPageCount = Math.ceil(total / limit)
 
   // Pages count is determined as siblingCount + firstPage + lastPage + currentPage + 2*'...'
