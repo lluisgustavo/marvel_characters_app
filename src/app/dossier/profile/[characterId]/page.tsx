@@ -79,7 +79,7 @@ const mapDataToImages = (data: Event[] | Series[] | Comic[]): ImageProps[] => {
       extension: item.thumbnail.extension,
     },
     title: item.title,
-    description: item.description,
+    description: parseDescription(item.description ?? ''),
   }))
 }
 
