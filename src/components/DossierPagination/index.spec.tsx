@@ -1,9 +1,10 @@
 import '@testing-library/jest-dom'
 import { render } from '@testing-library/react'
-import { DossierPagination, DossierPaginationProps } from './DossierPagination'
+import { DossierPagination } from './DossierPagination'
+import { Pagination } from '@/app/dossier/page'
 
 describe('DossierPagination', () => {
-  const pagination: DossierPaginationProps['pagination'] = {
+  const pagination: Pagination = {
     count: 10,
     limit: 5,
     offset: 0,
@@ -11,7 +12,7 @@ describe('DossierPagination', () => {
   }
 
   it('should render pagination information correctly', () => {
-    const { getByText } = render(<DossierPagination pagination={pagination} />)
+    const { getByText } = render(<DossierPagination {...pagination} />)
 
     const start = pagination.offset + 1
     const end = Math.min(pagination.offset + pagination.count, pagination.total)
