@@ -8,6 +8,7 @@ Este projeto é um teste prático para uma posição de desenvolvimento front-en
 - [Objetivos do Projeto](#objetivos-do-projeto)
 - [Diretivas](#diretivas)
 - [Tecnologias](#tecnologias)
+- [Práticas de Desenvolvimento](#práticas-de-desenvolvimento)
 - [Configuração/Como Começar](#configuraçãocomo-começar)
 
 ## Objetivos do Projeto
@@ -44,6 +45,10 @@ O objetivo deste projeto é avaliar as habilidades em desenvolvimento React.js, 
 - [Axios](https://axios-http.com/): Um framework CSS altamente personalizável que fornece classes utilitárias para construir rapidamente componentes de IU.
 - [MD5](https://github.com/pvorb/node-md5): Uma biblioteca JavaScript para gerar hashes MD5, frequentemente usada para criptografia e checksums.
 - [React Slick](https://react-slick.neostack.com/): Um componente de carrossel para aplicações React, usado para criar sliders e carrosséis de imagens.
+
+## Práticas de Desenvolvimento
+- Conventional Commits: Este projeto segue o formato de [Conventional Commits](https://www.conventionalcommits.org/) para as mensagens de commit.
+- JSDoc: Este projeto utiliza comentários [JSDoc](https://jsdoc.app/) para fornecer documentação para o código. O JSDoc é uma forma popular de documentar código JavaScript e gerar documentação de API.
 
 ## Configuração/Como Começar
 Para criar o aplicativo, utilizaremos a Marvel API. Siga as etapas abaixo para configurar seu ambiente de desenvolvimento:
