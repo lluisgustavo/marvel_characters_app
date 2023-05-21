@@ -18,6 +18,9 @@ export interface SearchBarProps {
 export function SearchBar({ setQuery, setLimit, setLoading }: SearchBarProps) {
   const [query, setLocalQuery] = useState('')
   const [limit, setLocalLimit] = useState(10)
+  const [debounceTimer, setDebounceTimer] = useState<ReturnType<
+    typeof setTimeout
+  > | null>(null)
 
   const handleQueryChange = (event: ChangeEvent<HTMLInputElement>) => {
     const newQuery = event.target.value
@@ -32,17 +35,21 @@ export function SearchBar({ setQuery, setLimit, setLoading }: SearchBarProps) {
   }
 
   useEffect(() => {
-    const debounceTimer = setTimeout(() => {
-      setLoading(false)
-      setQuery(query)
-    }, 1000)
-
-    setLoading(true)
-
-    return () => {
+    if (debounceTimer) {
       clearTimeout(debounceTimer)
     }
-  }, [query, setLoading, setQuery])
+
+    const timer = setTimeout(() => {
+      setLoading(true)
+      setQuery(query)
+    }, 500) // debounce delay
+
+    setDebounceTimer(timer)
+
+    return () => {
+      clearTimeout(timer)
+    }
+  }, [debounceTimer, query, setLoading, setQuery])
 
   useEffect(() => {
     setLimit(limit)

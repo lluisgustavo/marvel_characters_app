@@ -38,6 +38,7 @@ export default function Dossier() {
   const [offset, setOffset] = useState<number>(0)
   const [queryLimit, setQueryLimit] = useState<number>(10)
   const [loading, setLoading] = useState<boolean>(false)
+  const [debouncedQuery, setDebouncedQuery] = useState<string>('')
 
   function handleOffset(direction: 'left' | 'right') {
     if (direction === 'left') {
@@ -56,7 +57,7 @@ export default function Dossier() {
     const fetchCharactersData = async () => {
       try {
         const { pagination, characters } = await fetchCharacters(
-          query,
+          debouncedQuery,
           offset,
           queryLimit,
         )
@@ -68,16 +69,28 @@ export default function Dossier() {
         return {
           notFound: true,
         }
+      } finally {
+        setLoading(false)
       }
     }
 
     fetchCharactersData()
-  }, [query, offset, queryLimit])
+  }, [debouncedQuery, offset, queryLimit])
 
   const handleReturnClick = () => {
     deleteCookie('isAgent')
     router.push('/')
   }
+
+  useEffect(() => {
+    const debounceTimer = setTimeout(() => {
+      setDebouncedQuery(query)
+    }, 500) // debounce
+
+    return () => {
+      clearTimeout(debounceTimer)
+    }
+  }, [query])
   return (
     <>
       <ReturnButton onClick={handleReturnClick} />
