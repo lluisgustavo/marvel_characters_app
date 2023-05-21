@@ -178,7 +178,6 @@ export const fetchData = async (
       results: any[]
     } = response.data.data
 
-    if (results.length === 0) notFound()
     return {
       pagination: { offset, limit, total, count },
       characters: results,
