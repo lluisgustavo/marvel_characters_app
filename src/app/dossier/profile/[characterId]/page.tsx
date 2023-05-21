@@ -128,7 +128,6 @@ export default function Profile({
 
   const descriptionFormatted = parseDescription(character?.description ?? '')
 
-  console.log(character)
   const comicImages = mapDataToImages(comics)
   const eventImages = mapDataToImages(events)
   const seriesImages = mapDataToImages(series)

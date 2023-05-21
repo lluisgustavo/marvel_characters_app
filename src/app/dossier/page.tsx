@@ -52,22 +52,25 @@ export default function Dossier() {
   }
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchCharactersData = async () => {
       try {
         const { pagination, characters } = await fetchCharacters(
           query,
           offset,
           queryLimit,
         )
+
         setPagination(pagination)
         setCharacters(characters)
       } catch (error) {
         // Handle error if needed
-        console.error('Error fetching characters:', error)
+        return {
+          notFound: true,
+        }
       }
     }
 
-    fetchData()
+    fetchCharactersData()
   }, [query, offset, queryLimit])
 
   const handleReturnClick = () => {

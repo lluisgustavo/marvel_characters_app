@@ -12,15 +12,19 @@ export function DossierPagination({ pagination }: DossierPaginationProps) {
   const end = Math.min(pagination.offset + pagination.count, pagination.total)
 
   return (
-    <div className="mt-12">
-      <p className="text-center font-roboto text-2xl font-bold uppercase tracking-wide text-zinc-300">
-        Revealing {pagination.limit} subjects: #{start} to #{end} out of{' '}
-        {pagination.total} known subjects
-      </p>
-      <p className="mt-2 text-center font-classified text-2xl uppercase text-gray-400">
-        {' '}
-        Classified information.
-      </p>
-    </div>
+    <>
+      {pagination && pagination.total > 0 && (
+        <div className="mt-12">
+          <p className="text-center font-roboto text-2xl font-bold uppercase tracking-wide text-zinc-300">
+            Revealing {pagination.limit} subjects: #{start} to #{end} out of{' '}
+            {pagination.total} known subjects
+          </p>
+          <p className="mt-2 text-center font-classified text-2xl uppercase text-gray-400">
+            {' '}
+            Classified information.
+          </p>
+        </div>
+      )}
+    </>
   )
 }
