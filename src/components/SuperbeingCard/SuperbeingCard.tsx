@@ -41,11 +41,9 @@ export function SuperbeingCard({
       className="group flex min-h-[500px] cursor-pointer flex-col items-center bg-transparent p-2 text-center transition-colors hover:border-2 hover:border-teal-300 hover:bg-slate-900"
       data-testid="superbeing-card"
     >
-      <div className="w-full">
-        <p className="mb-2 flex h-24 items-center justify-center whitespace-pre-wrap text-center text-2xl font-bold uppercase leading-relaxed tracking-wide text-zinc-300 transition-colors group-hover:text-zinc-100">
-          {nameFormatted}
-        </p>
-      </div>
+      <h1 className="mb-2 flex h-full min-h-[150px] w-full flex-col items-center justify-center whitespace-pre-wrap text-center text-2xl font-bold uppercase leading-relaxed tracking-wide text-zinc-300 transition-colors group-hover:text-zinc-100">
+        {nameFormatted}
+      </h1>
       <Image
         data-testid="superbeing-card-image"
         className="aspect-square object-cover"
@@ -55,7 +53,7 @@ export function SuperbeingCard({
         alt={name}
       />
       <p
-        className={`px-2 py-5 text-center text-base text-zinc-300 transition-colors group-hover:text-zinc-100`}
+        className={`min-h-[150px] px-2 py-5 text-center text-base text-zinc-300 transition-colors group-hover:text-zinc-100`}
       >
         {descriptionFormatted}
       </p>
