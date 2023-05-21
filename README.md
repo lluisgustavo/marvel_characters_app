@@ -73,5 +73,5 @@ npm start
 npm run dev
 ```
 
-6. Access the app at [http://localhost:3000](http://localhost:3000).
+9. Access the app at [http://localhost:3000](http://localhost:3000).
  
