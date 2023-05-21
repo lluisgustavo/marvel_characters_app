@@ -39,15 +39,11 @@ export function SearchBar({ setQuery, setLimit }: SearchBarProps) {
   // Debounce the handleSearch function by 1000ms
   useEffect(() => {
     const debouncedSearch = debounce(() => {
-      if (query !== '') {
-        handleSearch()
-      }
+      handleSearch()
     }, 1000)
 
     const throttledSearch = throttle(() => {
-      if (query !== '') {
-        debouncedSearch()
-      }
+      debouncedSearch()
     }, 1000)
 
     throttledSearch()
