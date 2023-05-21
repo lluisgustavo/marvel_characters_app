@@ -31,7 +31,7 @@ interface ArrowProps {
 const Arrow = ({ offset, direction, onClick, total }: ArrowProps) => (
   <div
     onClick={onClick}
-    className={`z-10 mt-24 flex justify-center md:absolute ${
+    className={`z-10 mt-12 flex justify-center md:absolute ${
       direction === 'left' ? 'left-1' : 'right-1'
     } top-1/2 -translate-y-1/2 cursor-pointer`}
   >
@@ -95,11 +95,11 @@ export function Carousel({ images }: CarouselProps) {
         return (
           <div key={image.id}>
             <div className="flex justify-center">
-              <p className="m-4 p-4 text-center text-2xl font-bold uppercase leading-relaxed tracking-wider text-zinc-200">
+              <p className="mx-4  px-4 text-center text-2xl font-bold uppercase leading-relaxed tracking-wider text-zinc-200 md:mx-8">
                 {image.title}
               </p>
             </div>
-            <div className="flex justify-center">
+            <div className="m-8 flex justify-center">
               {image.thumbnail &&
                 image.thumbnail.path &&
                 image.thumbnail.extension && (
@@ -112,14 +112,11 @@ export function Carousel({ images }: CarouselProps) {
                 )}
             </div>
             <div className="flex items-center justify-center text-justify text-2xl text-zinc-200">
-              {image.description && image.description !== '' ? (
-                <p>{image.description}</p>
-              ) : (
-                <p>
-                  Agent, we regret to inform you that the description has gone
-                  missing. Investigation underway.
-                </p>
-              )}
+              <p className="m-8 px-12 pt-2 text-start md:mx-12">
+                {image.description && image.description !== ''
+                  ? image.description
+                  : 'Agent, we regret to inform you that the description has gone missing. Investigation underway.'}
+              </p>
             </div>
           </div>
         )
