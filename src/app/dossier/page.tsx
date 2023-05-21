@@ -78,7 +78,6 @@ export default function Dossier() {
     deleteCookie('isAgent')
     router.push('/')
   }
-
   return (
     <>
       <ReturnButton onClick={handleReturnClick} />
@@ -87,8 +86,7 @@ export default function Dossier() {
         setLimit={setQueryLimit}
         setLoading={setLoading}
       />
-      <DossierPagination pagination={pagination} />
-      {loading && (
+      {loading ? (
         <div
           role="status"
           className="absolute left-1/2 top-2/4 -translate-x-1/2 -translate-y-1/2"
@@ -113,13 +111,17 @@ export default function Dossier() {
             <span className="sr-only">Loading...</span>
           </div>
         </div>
+      ) : (
+        <>
+          <DossierPagination pagination={pagination} />
+          <DossierContent
+            offset={offset}
+            total={pagination.total}
+            handleOffset={handleOffset}
+            characters={characters}
+          />
+        </>
       )}
-      <DossierContent
-        offset={offset}
-        total={pagination.total}
-        handleOffset={handleOffset}
-        characters={characters}
-      />
     </>
   )
 }
