@@ -1,14 +1,14 @@
 'use client'
-import { DossierContent } from '@/components/DossierContent'
-import { DossierPagination } from '@/components/DossierPagination'
-import { ReturnButton } from '@/components/ReturnButton'
-import { SearchBar } from '@/components/SearchBar'
+import { DossierContent } from '@/components/DossierContent/DossierContent'
+import { DossierPagination } from '@/components/DossierPagination/DossierPagination'
+import { ReturnButton } from '@/components/ReturnButton/ReturnButton'
+import { SearchBar } from '@/components/SearchBar/SearchBar'
 import { fetchCharacters } from '@/lib/api'
 import { deleteCookie } from 'cookies-next'
 import { useRouter } from 'next/navigation'
 import { useState, useEffect } from 'react'
 
-interface Character {
+export interface Character {
   id: number
   name: string
   description: string
@@ -18,7 +18,7 @@ interface Character {
   }
 }
 
-interface Pagination {
+export interface Pagination {
   count: number
   limit: number
   offset: number

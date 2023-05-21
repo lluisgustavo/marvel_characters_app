@@ -1,4 +1,4 @@
-interface DossierPaginationProps {
+export interface DossierPaginationProps {
   pagination: {
     count: number
     limit: number

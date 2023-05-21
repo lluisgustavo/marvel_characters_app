@@ -1,7 +1,7 @@
 import { ArrowLeftCircle, ArrowRightCircle } from 'lucide-react'
-import { SuperbeingCard } from './SuperbeingCard'
+import { SuperbeingCard } from '../SuperbeingCard/SuperbeingCard'
 
-interface Character {
+export interface Character {
   id: number
   name: string
   description: string
@@ -11,7 +11,7 @@ interface Character {
   }
 }
 
-interface DossierContentProps {
+export interface DossierContentProps {
   offset: number
   total: number
   handleOffset: (direction: 'left' | 'right') => void
@@ -35,9 +35,10 @@ export function DossierContent({
               ? 'text-zinc-400 hover:text-zinc-100'
               : 'text-transparent'
           }  transition-colors `}
+          data-testid="left-arrow"
         />
       </div>
-      <div className="container mx-auto grid grid-cols-1 space-y-6 md:gap-8 lg:grid-cols-2 lg:p-6 xl:grid-cols-3 2xl:grid-cols-5">
+      <div className="container mx-auto grid grid-cols-1 md:gap-8 lg:grid-cols-2 lg:p-6 xl:grid-cols-3 2xl:grid-cols-5">
         {characters.map((character) => (
           <SuperbeingCard
             key={character.id}
@@ -58,6 +59,7 @@ export function DossierContent({
                 ? 'text-zinc-400 hover:text-zinc-100'
                 : 'text-transparent'
             }  transition-colors `}
+            data-testid="right-arrow"
           />
         )}
       </div>

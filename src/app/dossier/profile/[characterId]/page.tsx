@@ -121,9 +121,11 @@ export default function Profile({
   }, [characterId])
 
   const { character, comics, events, series } = data
+
   const imageUrl = character?.thumbnail
     ? getImageUrl(character.thumbnail)
     : ShieldLogo
+
   const descriptionFormatted = parseDescription(character?.description ?? '')
 
   const comicImages = mapDataToImages(comics)

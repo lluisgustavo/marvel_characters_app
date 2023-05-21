@@ -1,7 +1,7 @@
 import './globals.css'
 import { Roboto_Flex as Roboto, Poppins, Special_Elite } from 'next/font/google'
 import { ReactNode } from 'react'
-import { Logo } from '@/components/Logo'
+import { Logo } from '@/components/Logo/Logo'
 
 const specialElite = Special_Elite({
   subsets: ['latin'],

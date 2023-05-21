@@ -1,4 +1,4 @@
-interface ReturnButtonProps {
+export interface ReturnButtonProps {
   onClick: () => void
 }
 

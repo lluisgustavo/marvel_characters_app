@@ -3,7 +3,7 @@
 import { Search } from 'lucide-react'
 import { ChangeEvent, Dispatch, SetStateAction, useState } from 'react'
 
-interface SearchBarProps {
+export interface SearchBarProps {
   setQuery: Dispatch<SetStateAction<string>>
   setLimit: Dispatch<SetStateAction<number>>
 }
