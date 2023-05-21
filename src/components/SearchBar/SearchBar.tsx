@@ -5,51 +5,58 @@ import {
   ChangeEvent,
   Dispatch,
   SetStateAction,
+  useCallback,
   useEffect,
   useState,
 } from 'react'
+import debounce from 'lodash.debounce'
+import throttle from 'lodash.throttle'
 
 export interface SearchBarProps {
   setQuery: Dispatch<SetStateAction<string>>
   setLimit: Dispatch<SetStateAction<number>>
-  setLoading: Dispatch<SetStateAction<boolean>>
 }
 
-export function SearchBar({ setQuery, setLimit, setLoading }: SearchBarProps) {
+export function SearchBar({ setQuery, setLimit }: SearchBarProps) {
   const [query, setLocalQuery] = useState('')
   const [limit, setLocalLimit] = useState(10)
-  const [debounceTimer, setDebounceTimer] = useState<ReturnType<
-    typeof setTimeout
-  > | null>(null)
 
   const handleQueryChange = (event: ChangeEvent<HTMLInputElement>) => {
     const newQuery = event.target.value
     setLocalQuery(newQuery)
-    setQuery(newQuery)
   }
 
   const handleLimitChange = (event: ChangeEvent<HTMLSelectElement>) => {
     const newLimit = Number(event.target.value)
     setLocalLimit(newLimit)
-    setLimit(newLimit)
   }
 
+  // Register function once
+  const handleSearch = useCallback(() => {
+    setQuery(query)
+  }, [setQuery, query])
+
+  // Debounce the handleSearch function by 1000ms
   useEffect(() => {
-    if (debounceTimer) {
-      clearTimeout(debounceTimer)
-    }
+    const debouncedSearch = debounce(() => {
+      if (query !== '') {
+        handleSearch()
+      }
+    }, 1000)
 
-    const timer = setTimeout(() => {
-      setLoading(true)
-      setQuery(query)
-    }, 500) // debounce delay
+    const throttledSearch = throttle(() => {
+      if (query !== '') {
+        debouncedSearch()
+      }
+    }, 1000)
 
-    setDebounceTimer(timer)
+    throttledSearch()
 
     return () => {
-      clearTimeout(timer)
+      throttledSearch.cancel()
+      debouncedSearch.cancel()
     }
-  }, [debounceTimer, query, setLoading, setQuery])
+  }, [handleSearch, query])
 
   useEffect(() => {
     setLimit(limit)
