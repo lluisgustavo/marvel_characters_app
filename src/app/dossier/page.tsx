@@ -97,6 +97,7 @@ export default function Dossier() {
         <>
           <DossierPagination pagination={pagination} />
           <DossierContent
+            count={pagination.count}
             offset={offset}
             total={pagination.total}
             handleOffset={handleOffset}
