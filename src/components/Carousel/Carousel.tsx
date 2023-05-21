@@ -75,7 +75,7 @@ export function Carousel({ images }: CarouselProps) {
     return (
       <div className="flex h-full min-h-[600px] w-full flex-col items-center justify-center space-y-24">
         <Image className="w-3/12" src={ShieldLogo} alt="Nothing Found"></Image>
-        <p className="text-3xl">No records found in our database</p>
+        <p className="text-center text-3xl">No records found in our database</p>
       </div>
     )
   }
@@ -91,7 +91,7 @@ export function Carousel({ images }: CarouselProps) {
         return (
           <div key={image.id}>
             <div className="flex justify-center">
-              <p className="p-4 text-center text-2xl font-bold uppercase leading-relaxed tracking-wider text-zinc-200">
+              <p className="m-4 p-4 text-center text-2xl font-bold uppercase leading-relaxed tracking-wider text-zinc-200">
                 {image.title}
               </p>
             </div>
@@ -107,7 +107,7 @@ export function Carousel({ images }: CarouselProps) {
                   />
                 )}
             </div>
-            <div className="flex justify-center px-24 py-12 text-justify text-2xl text-zinc-200">
+            <div className="flex items-center justify-center text-justify text-2xl text-zinc-200">
               {image.description && image.description !== '' ? (
                 <p>{image.description}</p>
               ) : (
