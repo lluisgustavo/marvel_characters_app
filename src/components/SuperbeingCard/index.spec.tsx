@@ -1,12 +1,13 @@
 import '@testing-library/jest-dom'
-import { render, screen, fireEvent } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { SuperbeingCard } from './SuperbeingCard'
-import { useRouter } from 'next/navigation'
+// import { useRouter } from 'next/navigation'
 
-const mockRouterPush = jest.fn()
+// const mockRouterPush = jest.fn()
 
 jest.mock('next/image', () => ({
   __esModule: true,
+  // eslint-disable-next-line @next/next/no-img-element
   default: (props: any) => <img {...props} alt="" />,
 }))
 
