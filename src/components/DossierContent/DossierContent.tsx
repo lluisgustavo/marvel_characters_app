@@ -14,6 +14,7 @@ export interface Character {
 export interface DossierContentProps {
   offset: number
   total: number
+  count: number
   handleOffset: (direction: 'left' | 'right') => void
   characters: Character[]
 }
@@ -21,6 +22,7 @@ export interface DossierContentProps {
 export function DossierContent({
   offset,
   total,
+  count,
   handleOffset,
   characters,
 }: DossierContentProps) {
@@ -51,19 +53,17 @@ export function DossierContent({
               />
             ))}
           </div>
-          <div className="">
-            {offset !== total && (
-              <ArrowRightCircle
-                onClick={() => handleOffset('right')}
-                size={60}
-                className={`${
-                  offset !== total
-                    ? 'text-zinc-400 hover:text-zinc-100'
-                    : 'text-transparent'
-                }  cursor-pointer transition-colors `}
-                data-testid="right-arrow"
-              />
-            )}
+          <div className="mt-8 lg:mt-0">
+            <ArrowRightCircle
+              onClick={() => handleOffset('right')}
+              size={60}
+              className={`${
+                offset + count < total
+                  ? 'text-zinc-400 hover:text-zinc-100'
+                  : 'text-transparent'
+              }  cursor-pointer transition-colors `}
+              data-testid="right-arrow"
+            />
           </div>
         </div>
       ) : (
