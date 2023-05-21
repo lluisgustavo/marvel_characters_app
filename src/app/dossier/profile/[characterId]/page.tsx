@@ -5,7 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowLeft } from 'lucide-react'
 
-import { fetchData } from '@/lib/api'
+import { fetchData } from '@/lib/api/api'
 import { notFound } from 'next/navigation'
 import {
   formatCharacterName,
@@ -128,6 +128,7 @@ export default function Profile({
 
   const descriptionFormatted = parseDescription(character?.description ?? '')
 
+  console.log(character)
   const comicImages = mapDataToImages(comics)
   const eventImages = mapDataToImages(events)
   const seriesImages = mapDataToImages(series)

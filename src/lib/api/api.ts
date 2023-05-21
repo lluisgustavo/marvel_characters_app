@@ -137,13 +137,12 @@ export const fetchData = async (
   } catch (err) {
     const axiosError = err as AxiosError
 
-    if (axiosError.response && axiosError.response.status === 404)
-      return notFound()
-
-    console.error(err)
+    if (axiosError.response && axiosError.response.status === 500) {
+      throw new Error('Internal Server Error')
+    } else {
+      throw new Error('Error fetching characters')
+    }
   }
-
-  return undefined
 }
 
 /**
@@ -153,8 +152,7 @@ export const fetchData = async (
  * @param {number} queryLimit - The limit for the number of characters to fetch.
  * @returns {Promise<{ pagination: Pagination, characters: Character[] }>} The fetched characters and pagination information.
  * @throws {Error} Error fetching characters.
- */
-export const fetchCharacters = async (
+ */ export const fetchCharacters = async (
   query: string,
   characterOffset: number,
   queryLimit: number,
@@ -188,7 +186,11 @@ export const fetchCharacters = async (
   } catch (err) {
     const axiosError = err as AxiosError
 
-    throw new Error(axiosError.response?.statusText)
+    if (axiosError.response && axiosError.response.status === 500) {
+      throw new Error('Internal Server Error')
+    } else {
+      throw new Error('Error fetching characters')
+    }
   }
 }
 
