@@ -1,6 +1,5 @@
 import axios, { AxiosError } from 'axios'
 import md5 from 'md5'
-import { notFound } from 'next/navigation'
 
 interface Character {
   id: number
