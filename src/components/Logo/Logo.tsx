@@ -8,6 +8,7 @@ export function Logo() {
   const pathname = usePathname()
   let logoClassName = 'w-96'
   let bgClassName = 'mb-12'
+  let url = '/'
 
   if (pathname !== '/') {
     logoClassName = 'w-40'
@@ -18,9 +19,15 @@ export function Logo() {
     bgClassName = 'bg-transparent mb-12 sticky'
   }
 
+  if (pathname.includes('profile')) {
+    logoClassName = 'w-24'
+    bgClassName = 'bg-transparent mb-12 sticky'
+    url = '/dossier'
+  }
+
   return (
     <div className={`${bgClassName} flex items-center justify-center`}>
-      <Link href="/">
+      <Link href={url}>
         <Image
           className={`${logoClassName} transition-transform`}
           src={ShieldLogo}
