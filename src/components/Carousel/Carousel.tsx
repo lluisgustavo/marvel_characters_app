@@ -75,7 +75,7 @@ export function Carousel({ images }: CarouselProps) {
     return (
       <div className="flex h-full min-h-[600px] w-full flex-col items-center justify-center space-y-24 sm:py-8">
         <Image
-          className="w-3/4  sm:w-3/6"
+          className="w-3/4 sm:w-3/6"
           src={ShieldLogo}
           alt="Nothing Found"
         ></Image>
@@ -99,11 +99,12 @@ export function Carousel({ images }: CarouselProps) {
                 {image.title}
               </p>
             </div>
-            <div className="m-8 flex justify-center">
+            <div className="m-8 flex justify-center md:min-h-[500px]">
               {image.thumbnail &&
                 image.thumbnail.path &&
                 image.thumbnail.extension && (
                   <Image
+                    className="object-contain"
                     src={imageUrl}
                     alt={image.title}
                     width={400}
