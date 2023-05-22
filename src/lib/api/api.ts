@@ -1,58 +1,6 @@
 import axios, { AxiosError } from 'axios'
 import md5 from 'md5'
-
-interface Character {
-  id: number
-  name: string
-  description: string
-  thumbnail: {
-    path: string
-    extension: string
-  }
-}
-
-interface Comic {
-  id: number
-  title: string
-  issueNumber: number
-  variantDescription: string
-  description: string
-  thumbnail: {
-    path: string
-    extension: string
-  }
-}
-
-interface Event {
-  id: number
-  title: string
-  issueNumber: number
-  variantDescription: string
-  description: string
-  thumbnail: {
-    path: string
-    extension: string
-  }
-}
-
-interface Series {
-  id: number
-  title: string
-  issueNumber: number
-  variantDescription: string
-  description: string
-  thumbnail: {
-    path: string
-    extension: string
-  }
-}
-
-interface Pagination {
-  count: number
-  limit: number
-  offset: number
-  total: number
-}
+import { CarouselImage, Character, Pagination } from '../types'
 
 /**
  * Base URL for the Marvel API.
@@ -108,9 +56,9 @@ export const fetchData = async (
 ): Promise<
   | {
       character?: Character | undefined
-      comics: Comic[]
-      events: Event[]
-      series: Series[]
+      comics: CarouselImage[]
+      events: CarouselImage[]
+      series: CarouselImage[]
     }
   | undefined
 > => {

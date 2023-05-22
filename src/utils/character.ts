@@ -1,10 +1,6 @@
+import { Thumbnail } from '@/lib/types'
 import logo from '../assets/logo.svg'
 // import powerLevelData from '../assets/powerlevels.json'
-
-interface Thumbnail {
-  path: string
-  extension: string
-}
 
 /**
  * Formats the character name by extracting the character name and real name (if available)
