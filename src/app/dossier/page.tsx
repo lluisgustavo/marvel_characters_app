@@ -8,23 +8,7 @@ import { deleteCookie } from 'cookies-next'
 import { useRouter } from 'next/navigation'
 import { useState, useEffect, useRef } from 'react'
 import { LoadingDossier } from './loading'
-
-export interface Character {
-  id: number
-  name: string
-  description: string
-  thumbnail: {
-    path: string
-    extension: string
-  }
-}
-
-export interface Pagination {
-  count: number
-  limit: number
-  offset: number
-  total: number
-}
+import { Character, Pagination } from '@/lib/types'
 
 export default function Dossier() {
   const router = useRouter()

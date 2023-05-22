@@ -1,23 +1,7 @@
 import { ArrowLeftCircle, ArrowRightCircle } from 'lucide-react'
 import { SuperbeingCard } from '../SuperbeingCard/SuperbeingCard'
 import PageNumber from '../DossierPagination/PageNumber'
-import { Pagination } from '@/app/dossier/page'
-
-export interface Character {
-  id: number
-  name: string
-  description: string
-  thumbnail: {
-    path: string
-    extension: string
-  }
-}
-
-export interface DossierContentProps {
-  pagination: Pagination
-  handleOffset: (direction: 'left' | 'right' | number) => void
-  characters: Character[]
-}
+import { DossierContentProps } from '@/lib/types'
 
 export function DossierContent({
   pagination,
@@ -46,7 +30,7 @@ export function DossierContent({
               {characters.map((character) => (
                 <SuperbeingCard
                   key={character.id}
-                  characterId={character.id}
+                  id={character.id}
                   name={character.name}
                   description={character.description}
                   thumbnail={character.thumbnail}

@@ -1,10 +1,8 @@
 'use client'
-
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowLeft } from 'lucide-react'
-
 import { fetchData } from '@/lib/api/api'
 import { notFound } from 'next/navigation'
 import {
@@ -15,64 +13,9 @@ import {
 import { Carousel } from '@/components/Carousel/Carousel'
 import ShieldLogo from '@/assets/logo.svg'
 import Loading from './loading'
+import { CarouselImage, CarouselProps, Character } from '@/lib/types'
 
-interface Character {
-  id: number
-  name: string
-  description: string
-  thumbnail: {
-    path: string
-    extension: string
-  }
-}
-
-interface Comic {
-  id: number
-  title: string
-  issueNumber: number
-  variantDescription: string
-  description: string
-  thumbnail: {
-    path: string
-    extension: string
-  }
-}
-
-interface Event {
-  id: number
-  title: string
-  issueNumber: number
-  variantDescription: string
-  description: string
-  thumbnail: {
-    path: string
-    extension: string
-  }
-}
-
-interface Series {
-  id: number
-  title: string
-  issueNumber: number
-  variantDescription: string
-  description: string
-  thumbnail: {
-    path: string
-    extension: string
-  }
-}
-
-interface ImageProps {
-  id: number
-  thumbnail: {
-    path: string
-    extension: string
-  }
-  title: string
-  description: string
-}
-
-const mapDataToImages = (data: Event[] | Series[] | Comic[]): ImageProps[] => {
+const mapDataToImages = (data: CarouselImage[]) => {
   return data.map((item) => ({
     id: item.id,
     thumbnail: {
@@ -94,9 +37,9 @@ export default function Profile({
   const [activeTab, setActiveTab] = useState<number>(1)
   const [data, setData] = useState<{
     character?: Character
-    comics: Comic[]
-    events: Event[]
-    series: Series[]
+    comics: CarouselImage[]
+    events: CarouselImage[]
+    series: CarouselImage[]
   }>({
     character: undefined,
     comics: [],

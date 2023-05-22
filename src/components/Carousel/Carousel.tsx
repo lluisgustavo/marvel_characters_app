@@ -2,31 +2,11 @@ import { useState } from 'react'
 import Slider, { Settings } from 'react-slick'
 import ShieldLogo from '@/assets/logo.svg'
 import Image from 'next/image'
-import 'slick-carousel/slick/slick.css'
-import 'slick-carousel/slick/slick-theme.css'
 import { getImageUrl } from '@/utils/character'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
-
-interface CarouselImage {
-  id: number
-  thumbnail: {
-    path: string
-    extension: string
-  }
-  title: string
-  description: string
-}
-
-interface CarouselProps {
-  images: CarouselImage[]
-}
-
-interface ArrowProps {
-  offset: number
-  direction: 'left' | 'right'
-  onClick?: () => void
-  total: number
-}
+import { ArrowProps, CarouselProps } from '@/lib/types'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
 
 const Arrow = ({ offset, direction, onClick, total }: ArrowProps) => (
   <div
