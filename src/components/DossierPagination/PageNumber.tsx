@@ -1,4 +1,4 @@
-import { Pagination } from '@/app/dossier/page'
+import { Pagination } from '@/lib/types'
 import { useMemo } from 'react'
 
 type PaginationRange = Array<number | '...'>
