@@ -177,10 +177,11 @@ export default function Profile({
                   <select
                     id="tabs"
                     className="block h-16 w-full border-zinc-50 bg-zinc-950 p-2.5 text-center text-3xl font-extrabold uppercase text-zinc-100 sm:text-3xl"
+                    onChange={(e) => setActiveTab(Number(e.target.value))}
                   >
-                    <option>Comics</option>
-                    <option>Events</option>
-                    <option>Series</option>
+                    <option value={1}>Comics</option>
+                    <option value={2}>Events</option>
+                    <option value={3}>Series</option>
                   </select>
                 </nav>
                 <nav className="-mb-px hidden h-16 flex-wrap text-4xl font-extrabold md:flex md:flex-nowrap">
