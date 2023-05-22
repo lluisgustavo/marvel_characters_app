@@ -1,14 +1,6 @@
-'use client'
-import { deleteCookie, hasCookie } from 'cookies-next'
-import { useRouter } from 'next/navigation'
+import Return from '@/components/Join/Return/Return'
 
 export default function Join() {
-  const router = useRouter()
-  async function handleReturnClick() {
-    if (hasCookie('isAgent')) deleteCookie('isAgent')
-    router.push('/')
-  }
-
   return (
     <div className="flex w-full flex-col items-center justify-center gap-5 pb-10 text-justify font-classified md:px-16">
       <div className="space-y-12 md:max-w-[960px]">
@@ -56,12 +48,7 @@ export default function Join() {
           </span>
           .
         </p>
-        <button
-          onClick={() => handleReturnClick()}
-          className="py-4 text-center text-5xl font-bold text-white shadow-md hover:underline md:text-start"
-        >
-          Return
-        </button>
+        <Return />
       </div>
     </div>
   )
