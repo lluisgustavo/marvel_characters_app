@@ -1,67 +1,19 @@
-import { useState } from 'react'
-import Slider, { Settings } from 'react-slick'
+import Slider from 'react-slick'
 import ShieldLogo from '@/assets/logo.svg'
 import Image from 'next/image'
 import { getImageUrl } from '@/utils/character'
-import { ArrowLeft, ArrowRight } from 'lucide-react'
-import { ArrowProps, CarouselProps } from '@/lib/types'
+import { CarouselProps } from '@/lib/types'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
-
-const Arrow = ({ offset, direction, onClick, total }: ArrowProps) => (
-  <div
-    onClick={onClick}
-    className={`z-10 mt-12 flex justify-center md:absolute ${
-      direction === 'left' ? 'left-1' : 'right-1'
-    } top-1/2 -translate-y-1/2 cursor-pointer`}
-  >
-    {direction === 'left' && offset !== 0 && <ArrowLeft size={64} />}
-    {direction === 'right' && offset !== total - 1 && <ArrowRight size={64} />}
-  </div>
-)
+import getCarouselSettings from './CarouselSettings'
+import CarouselNotFound from './CarouselNotFound'
 
 export function Carousel({ images }: CarouselProps) {
-  const [offset, setOffset] = useState(0)
   const total = images.length
-
-  const settings: Settings = {
-    dots: false,
-    infinite: false,
-    speed: 1500,
-    prevArrow: <Arrow offset={offset} total={total} direction="left" />,
-    nextArrow: <Arrow offset={offset} total={total} direction="right" />,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    swipeToSlide: true,
-    lazyLoad: 'ondemand', // Set the value of lazyLoad to 'ondemand' or 'progressive' based on your requirements
-    autoplay: false,
-    responsive: [
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          infinite: true,
-          dots: true,
-        },
-      },
-    ],
-    beforeChange: function (currentSlide, nextSlide) {
-      setOffset(nextSlide)
-    },
-  }
+  const settings = getCarouselSettings(total)
 
   if (!images || images.length === 0) {
-    return (
-      <div className="flex h-full min-h-[600px] w-full flex-col items-center justify-center space-y-24 sm:py-8">
-        <Image
-          className="w-3/4 sm:w-3/6"
-          src={ShieldLogo}
-          alt="Nothing Found"
-        ></Image>
-        <p className="text-center text-3xl">No records found in our database</p>
-      </div>
-    )
+    return <CarouselNotFound />
   }
 
   return (
