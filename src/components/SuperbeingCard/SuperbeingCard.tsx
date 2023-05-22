@@ -5,23 +5,14 @@ import {
   getImageUrl,
 } from '@/utils/character'
 import { useRouter } from 'next/navigation'
-
-export interface CharacterCard {
-  characterId: number
-  name: string
-  description: string
-  thumbnail: {
-    path: string
-    extension: string
-  }
-}
+import { Character } from '@/lib/types'
 
 export function SuperbeingCard({
-  characterId,
+  id,
   name,
   description,
   thumbnail,
-}: CharacterCard) {
+}: Character) {
   const router = useRouter()
   const imageUrl = getImageUrl(thumbnail)
   const nameFormatted = formatCharacterName(name)
@@ -29,7 +20,7 @@ export function SuperbeingCard({
 
   async function showProfileCard() {
     try {
-      router.push(`/dossier/profile/${characterId}`)
+      router.push(`/dossier/profile/${id}`)
     } catch (error) {
       console.error('Error fetching character profile:', error)
     }
