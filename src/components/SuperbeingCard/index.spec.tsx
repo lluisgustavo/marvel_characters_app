@@ -27,7 +27,7 @@ describe('SuperbeingCard', () => {
   beforeAll(async () => {
     render(
       <SuperbeingCard
-        characterId={characterId}
+        id={characterId}
         name={name}
         description={description}
         thumbnail={thumbnail}
