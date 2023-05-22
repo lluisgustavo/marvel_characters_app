@@ -1,6 +1,6 @@
-import { Pagination } from '@/app/dossier/page'
+import { Pagination } from '@/lib/types'
 
-export function DossierPagination({ count, limit, offset, total }: Pagination) {
+export function DossierPagination({ offset, count, total, limit }: Pagination) {
   const start = offset + 1
   const end = Math.min(offset + count, total)
 
