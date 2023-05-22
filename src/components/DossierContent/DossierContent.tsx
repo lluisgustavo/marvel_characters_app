@@ -8,9 +8,12 @@ export function DossierContent({
   handleOffset,
   characters,
 }: DossierContentProps) {
+  const hasCharacters = characters && characters.length > 0
+  const isLoading = !hasCharacters
+
   return (
     <>
-      {characters && characters.length > 0 ? (
+      {!isLoading && hasCharacters ? (
         <>
           <PageNumber pagination={pagination} handleOffset={handleOffset} />
           <div className="flex h-full flex-col items-center justify-between space-y-8 pb-12 md:pb-0 lg:flex-row">
