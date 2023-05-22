@@ -61,9 +61,10 @@ export function useDossierData() {
           setOffset(0)
           return
         }
-        setLoading(false)
       } catch (error) {
         console.error(error)
+      } finally {
+        setLoading(false)
       }
     }
 
