@@ -3,7 +3,7 @@
 [![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/lluisgustavo/marvel_characters_app/blob/main/README.md)
 [![pt-br](https://img.shields.io/badge/lang-pt--br-green.svg)](https://github.com/lluisgustavo/marvel_characters_app/blob/main/README.pt-br.md)
 
-This project is a practical test for a React front-end development position at Oystr Robôs.
+This project was a practical test for a React front-end development position.
 
 ## Table of Contents
 - [Project Objectives](#project-objectives)
